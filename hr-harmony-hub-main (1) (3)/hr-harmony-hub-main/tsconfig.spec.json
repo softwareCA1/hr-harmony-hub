@@ -6,7 +6,7 @@
     "types": [
       "jasmine"
     ]
-  },
+  },//comment
   "include": [
     "src/**/*.spec.ts",
     "src/**/*.d.ts"
