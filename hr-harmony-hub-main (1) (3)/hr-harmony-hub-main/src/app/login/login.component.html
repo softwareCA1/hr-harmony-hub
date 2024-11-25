@@ -1,0 +1,42 @@
+<link rel="stylesheet" href="login.component.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<app-navbar></app-navbar>
+<div class="form">
+    <div class="rightside">
+        <div class="input-container">
+            <h2>{{ isLoginMode ? 'Login' : 'Signup' }}</h2>
+            <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+            <form (submit)="onSubmit()">
+                <div class="input">
+                    <i class="fa fa-user" style="margin-right: 8px;"></i> 
+                    <label for="username">Email:</label>
+                    <input type="text" id="username" name="username" [(ngModel)]="username" required />
+                </div>
+
+                <div class="input">
+                    <i class="fa fa-lock" style="margin-right: 8px;"></i>  
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" [(ngModel)]="password" required />
+                </div>
+
+                <ng-container *ngIf="!isLoginMode">
+                    <div class="input">
+                        <i class="fa fa-lock" style="margin-right: 8px;"></i> 
+                        <label for="confirmPassword">Confirm Password:</label>
+                        <input type="password" id="confirmPassword" name="confirmPassword" [(ngModel)]="confirmPassword" required />
+                        <div *ngIf="errorMessage" class="error-message">
+                            Passwords do not match. Please enter matching passwords.
+                        </div>
+                    </div>
+                </ng-container>
+
+                <button type="submit" class="login">{{ isLoginMode ? 'Login' : 'Signup' }}</button>
+            </form>
+            <button (click)="toggleMode()" class="toggle-mode">
+                {{ isLoginMode ? 'Don\'t have an account? Sign up here.' : 'Already have an account? Login here.' }}
+            </button>
+            <p class="toggle-mode" *ngIf="isLoginMode">Forgot your password? <a href="/reset-password">Reset it here</a></p>
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>

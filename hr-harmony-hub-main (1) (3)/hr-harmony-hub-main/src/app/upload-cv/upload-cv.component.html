@@ -1,0 +1,18 @@
+<link rel="stylesheet" href="upload-cv.component.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<app-navbar></app-navbar>
+
+
+<div>
+  <h2>Upload Your CV</h2>
+  <input type="file" (change)="onFileSelected($event)" accept=".pdf, .docx" />
+</div>
+
+<div *ngIf="fileURL">
+  <h3>Preview:</h3>
+  <iframe *ngIf="fileType === 'pdf'" [src]="fileURL | safeUrl" width="100%" height="600px"></iframe>
+  <a *ngIf="fileType === 'docx'" [href]="fileURL" download="CV.docx">Download DOCX file to view</a>
+</div>
+
+  
+<app-footer></app-footer>

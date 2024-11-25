@@ -1,0 +1,23 @@
+/* src/app/home/home.component.css */
+  .banner {
+    background-color: #007bff;
+    color: white;
+    text-align: center;
+    padding: 50px;
+  }
+  .content {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+    background-color: #f8f9fa;
+  }
+  .feature {
+    width: 20%;
+    text-align: center;
+    padding: 10px;
+    border: 1px solid #dee2e6;
+    background-color: white;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  }
+ 
+  
